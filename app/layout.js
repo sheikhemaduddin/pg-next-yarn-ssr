@@ -1,9 +1,8 @@
 import './globals.css';
-import Providers from './components/Providers';
 
 export const metadata = {
-  title: 'Nova — SSR + Socket.IO',
-  description: 'Next.js SSR app with JWT authentication and Socket.IO.',
+  title: 'Nova — PostgreSQL data app',
+  description: 'Next.js SSR app powered by PostgreSQL and live AI news.',
 };
 
 export default function RootLayout({ children }) {
@@ -17,9 +16,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>
-        <Providers>{children}</Providers>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

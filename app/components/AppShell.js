@@ -9,8 +9,8 @@ export default function AppShell({ children }) {
       <main>{children}</main>
       <footer className="footer">
         <div className="container footer-inner">
-          <span>Nova · SSR + Socket.IO</span>
-          <span>JWT auth on one Node process</span>
+          <span>Nova · PostgreSQL + Next.js</span>
+          <span>Data via PGHOST / PGUSER / PGDATABASE</span>
         </div>
       </footer>
     </div>

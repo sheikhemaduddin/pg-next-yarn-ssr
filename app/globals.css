@@ -716,6 +716,19 @@ main {
   font-size: 0.85rem;
 }
 
+.pg-layout {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .pg-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .news-grid {
   display: grid;
   gap: 1.25rem;

@@ -1,4 +1,4 @@
-# next-custom · yarn · SSR + Socket.IO
+# next-custom · yarn · PostgreSQL data app
 
 | Field | Value |
 |-------|-------|
@@ -10,11 +10,26 @@
 | Start Command | `yarn start` |
 | Node | >=18.18.0 |
 
-Single Node process: Next.js SSR/API + Socket.IO on `process.env.PORT`.
+## Environment variables
 
-Optional env:
+Set in Velocity → **Environment Variables**:
 
-- `JWT_SECRET` — signing/verify secret (set in production)
-- `HOSTNAME` — bind host (default `0.0.0.0`)
+| Key | Purpose |
+|-----|---------|
+| `PGUSER` | Postgres user |
+| `PGPASSWORD` | Postgres password |
+| `PGHOST` | Usually `localhost` on Cloudways |
+| `PGPORT` | Usually `5432` |
+| `PGDATABASE` | Database name |
 
-Generate the Yarn lockfile with `./generate-lockfile.sh` before pushing if Cloudways uses Yarn install.
+Optional: `HOSTNAME`, `PGSSL=true`, `DATABASE_URL`
+
+No JWT / Socket.IO env vars required.
+
+## App surfaces
+
+- `/` — PostgreSQL records panel
+- `/news` — AI news from Hacker News
+- `/about` — architecture notes
+
+APIs: `/api/pg/status`, `/api/pg/records`, `/api/pg/seed`, `/api/news`

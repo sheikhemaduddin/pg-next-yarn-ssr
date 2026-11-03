@@ -2,12 +2,6 @@
 
 import AppShell from '../components/AppShell';
 
-const team = [
-  { initials: 'AK', name: 'Alex Kim', role: 'Design' },
-  { initials: 'MR', name: 'Morgan Reed', role: 'Frontend' },
-  { initials: 'SL', name: 'Sam Liu', role: 'Product' },
-];
-
 export default function AboutPage() {
   return (
     <AppShell>
@@ -15,32 +9,28 @@ export default function AboutPage() {
         <header className="page-header">
           <h1>About Nova</h1>
           <p>
-            A Next.js SSR app with server-issued JWT auth and Socket.IO on one custom
-            <code> server.js</code> entry — same UI, one deployable process.
+            A lean Next.js SSR demo focused on PostgreSQL. Auth and Socket.IO were removed so the
+            app centers on durable data and a simple news feed.
           </p>
         </header>
 
         <div className="prose">
+          <h2>Data model</h2>
           <p>
-            Login and register hit API routes that sign HS256 JWTs. The dashboard opens a
-            Socket.IO connection on the same origin, authenticated with that token for
-            presence, activity, and chat.
+            Table <code>nova_pg_records</code> stores title, category, summary, source, and
+            timestamps. The API auto-migrates and seeds demo rows when the table is empty.
           </p>
-          <h2>Architecture</h2>
+          <h2>Environment</h2>
           <p>
-            Next handles pages and <code>/api/auth/*</code>. Socket.IO attaches to the same
-            HTTP server. Cloudways Entry File should be <code>server.js</code>.
+            Connection uses <code>PGUSER</code>, <code>PGPASSWORD</code>, <code>PGHOST</code>,{' '}
+            <code>PGPORT</code>, and <code>PGDATABASE</code> — the same keys Cloudways Velocity
+            exposes for the Postgres addon.
           </p>
-        </div>
-
-        <div className="team-grid">
-          {team.map((member) => (
-            <article key={member.name} className="card">
-              <div className="avatar">{member.initials}</div>
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </article>
-          ))}
+          <h2>Entry point</h2>
+          <p>
+            Cloudways Entry File remains <code>server.js</code>. Set the five <code>PG*</code> vars
+            and deploy.
+          </p>
         </div>
       </div>
     </AppShell>

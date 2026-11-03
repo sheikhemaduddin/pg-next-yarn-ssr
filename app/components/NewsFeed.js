@@ -52,7 +52,7 @@ export default function NewsFeed() {
           <h2>AI news</h2>
           <p>
             Live headlines fetched from the internet (Hacker News) via{' '}
-            <code className="token-code">/api/news</code> — independent of Socket.IO.
+            <code className="token-code">/api/news</code> — separate from Postgres records.
           </p>
         </div>
         <button
